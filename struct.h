@@ -72,6 +72,7 @@ void csv_to_struct(){
                 break;
         }
     }
+    infile.close();
 }
 
 void struct_to_csv(){
