@@ -10,7 +10,7 @@ ofstream outfile;
 int estudiantes=0;
 string titulo;
 
-struct inventario{
+struct datos{
 string nombre, apellido, email, genero, math, sociales, biologia, fisica, EF, artes;
 int id;
 }datos_est[10000];
