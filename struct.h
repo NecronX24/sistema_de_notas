@@ -12,6 +12,7 @@ string titulo;
 
 struct inventario{
 string nombre, apellido, email, genero, math, sociales, biologia, fisica, EF, artes;
+int id;
 }datos_est[10000];
 
 void csv_to_struct(){
@@ -66,6 +67,7 @@ void csv_to_struct(){
                 getline(infile,dato,'\n');
                 datos_est[estudiantes].artes=dato;
                 i=0;
+                datos_est[estudiantes].id=estudiantes;
                 estudiantes++;
                 break;
         }
