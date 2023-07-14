@@ -1,5 +1,6 @@
 #include <iostream>
 #include "struct.h"
+#include "Sort_And_Search.h"
 using namespace std;
 
 void volver_a_inicio();
@@ -14,6 +15,7 @@ int main(){
     }
     csv_to_struct();
     infile.close();
+    quicksort(datos_est, 0, estudiantes-1, 1);
     outfile.open("Prueba.csv");
     struct_to_csv();
     return 0;
@@ -23,6 +25,7 @@ void menu_eleccion(int temp){
     switch (temp)
     {
     case 1:
+    quicksort(datos_est, 0, estudiantes-1, 1);
         //Importa si cambia el orden inicial?. Preguntar como plantea la busqueda por estudiante
         break;
 
