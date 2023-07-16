@@ -2,6 +2,18 @@
 #include <iostream>
 #include "struct.h"
 
+//Sacar promedio
+float promediar(int i){
+    int math = stoi(datos_est[i].math);
+    int sociales = stoi(datos_est[i].sociales);
+    int biologia = stoi(datos_est[i].biologia);
+    int fisica = stoi(datos_est[i].fisica);
+    int EF = stoi(datos_est[i].EF);
+    int artes=stoi(datos_est[i].artes);
+    float suma = (math+sociales+biologia+fisica+EF+artes);
+    return suma / 6;
+}
+
 //Particiones para el Quick Sort
 int partition_FirstName(datos arr[], int low, int high) {
   datos pivot = arr[high];
@@ -22,6 +34,7 @@ int partition_FirstName(datos arr[], int low, int high) {
   return (i + 1);
 }
 
+//Ordenar para la forma inicial
 int partition_ID(datos arr[], int low, int high) {
   datos pivot = arr[high];
   int i = low - 1;
@@ -31,6 +44,30 @@ int partition_ID(datos arr[], int low, int high) {
       i++;
       swap(arr[i], arr[j]);
     } 
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
+//Ordenar por notas
+int partition_math(datos arr[], int low, int high) {
+  datos pivot = arr[high];
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    int num = stoi(arr[j].math);
+    int pivote_int = stoi(pivot.math);
+    if (num > pivote_int) {
+      i++;
+      swap(arr[i], arr[j]);
+    } else if (num == pivote_int) {
+      float promedio_a = promediar(j);
+      float promedio_b = promediar(high);
+      if (promedio_a > promedio_b) {
+        i++;
+        swap(arr[i], arr[j]);
+      }
+    }
   }
   swap(arr[i + 1], arr[j]);
   return (i + 1);
@@ -46,6 +83,9 @@ void quicksort(datos arr[], int low, int high, int caso){
           break;
         case 2:
           pi = partition_ID(arr, low, high);
+          break;
+        case 3:
+          pi = partition_math(arr, low, high);
           break;
         default:
           cout<<"Error desconocido";
