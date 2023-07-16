@@ -2,6 +2,7 @@
 #include "struct.h"
 #include "Sort_And_Search.h"
 #include "Mostrar_Estudiante.h"
+#include "Materias_con_Cantidad_Alumnos.h"
 using namespace std;
 
 void volver_a_inicio();
@@ -29,7 +30,7 @@ void menu_eleccion(int temp){
         break;
 
     case 2:
-        
+        Materias_y_Alumnos();
         break;
 
     case 3:
