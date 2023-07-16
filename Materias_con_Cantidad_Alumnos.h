@@ -134,11 +134,13 @@ void eleccion_repetir_menu(){
     int eleccion;
     cin>>eleccion;
     switch(eleccion){
+        case 0:
+            break;
+
         case 1:
             Crear_Archivo();
             break;
-        case 2:
-            break;
+        
         default:
             cout<<"Elige bien"<<endl;
             eleccion_repetir_menu();
