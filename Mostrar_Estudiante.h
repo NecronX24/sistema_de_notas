@@ -7,17 +7,6 @@
 #include "struct.h"
 using namespace std;
 
-float promediar(int i){
-    int math = stoi(datos_est[i].math);
-    int sociales = stoi(datos_est[i].sociales);
-    int biologia = stoi(datos_est[i].biologia);
-    int fisica = stoi(datos_est[i].fisica);
-    int EF = stoi(datos_est[i].EF);
-    int artes=stoi(datos_est[i].artes);
-    float suma = (math+sociales+biologia+fisica+EF+artes);
-    return suma / 6;
-}
-
 void mostrar_individual(){
     quicksort(datos_est,0,estudiantes-1,1);
     cout<<"Escribe el nombre y apellido de la persona a buscar\n>> ";
