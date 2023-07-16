@@ -75,6 +75,7 @@ void csv_to_struct(){
     infile.close();
 }
 
+//Se usa ',' en ves de ';' para que el archivo resultante se encuentre como el original
 void struct_to_csv(){
     int i = 0;
     outfile<<titulo<<endl;
