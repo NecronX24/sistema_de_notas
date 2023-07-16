@@ -39,7 +39,8 @@ void menu_eleccion(int temp){
         break;
 
     case 4:
-        
+        agregar(estudiantes);
+        estudiantes++;
         break;
 
     case 5:
@@ -82,6 +83,7 @@ void volver_a_inicio(){
 }
 
 void inicio(){
+    cout<<"\n"<<estudiantes<<","<<datos_est[1000].apellido<<"\n";
     int eleccion;
     cout<< "Programa de Sistema de Notas de Estudiantes, elige tu opcion:"<<endl;
     cout<< "1. Mostrar un estudiante o todos y su nota promedio"<<endl;
