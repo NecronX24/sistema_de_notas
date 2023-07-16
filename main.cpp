@@ -3,6 +3,7 @@
 #include "Sort_And_Search.h"
 #include "Mostrar_Estudiante.h"
 #include "Materias_con_Cantidad_Alumnos.h"
+#include "Editar_Informacion_Estudiante.h"
 using namespace std;
 
 void volver_a_inicio();
@@ -34,7 +35,7 @@ void menu_eleccion(int temp){
         break;
 
     case 3:
-        
+        editar();
         break;
 
     case 4:
