@@ -130,7 +130,7 @@ void Crear_Archivo(){
 }
 
 void eleccion_repetir_menu(){
-    cout<< "Desea un archivo con los generos detallados? (1 para si, 0 para no\n>> ";
+    cout<< "Desea un archivo con los generos detallados? (1 para si, 0 para no)\n>> ";
     int eleccion;
     cin>>eleccion;
     switch(eleccion){
