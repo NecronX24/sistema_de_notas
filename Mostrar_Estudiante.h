@@ -28,11 +28,9 @@ void mostrar_individual(){
     quicksort(datos_est,0,estudiantes-1,2);
 }
 
-void mostrar_total(){
-    cout<< "Se mostraran los alumnos con su nota promedio:"<<endl;
-    cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Notas"<<endl;
+void pasar_a_archivo(){
     outfile.open("Estudiantes_y_Promedio.csv");
-    outfile<<"Nombre,Apellido,Notas"<<endl;
+    outfile<<"Nombre,Apellido,Notas Promedio"<<endl;
     for (int i=0; i<estudiantes; i++){
         int math = stoi(datos_est[i].math);
         int sociales = stoi(datos_est[i].sociales);
@@ -42,11 +40,45 @@ void mostrar_total(){
         int artes=stoi(datos_est[i].artes);
         float suma = (math+sociales+biologia+fisica+EF+artes);
         float promedio = suma / 6;
-        cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<< fixed <<setprecision(2) << promedio<<endl;
         outfile<<datos_est[i].nombre<<","<<datos_est[i].apellido<<","<< fixed <<setprecision(2) << promedio<<endl;
     }    
-    cout<<"Se guardaron las notas de los estudiantes y su promedio en un archivo"<<endl;
     outfile.close();
+}
+
+void eleccion_archivo(){
+    cout<<"Quiere guardar las notas en un archivo? (1 para si, 0 para no)\n>> ";
+    int eleccion;
+    cin>>eleccion;
+    switch(eleccion){
+        case 0:
+            break;
+
+        case 1:
+            pasar_a_archivo();
+            break;
+        
+        default:
+            cout<<"Elige bien"<<endl;
+            eleccion_archivo();
+            break;
+    }
+}
+
+void mostrar_total(){
+    cout<< "Se mostraran los alumnos con su nota promedio:"<<endl;
+    cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(14)<<"Notas promedio"<<endl;
+    for (int i=0; i<estudiantes; i++){
+        int math = stoi(datos_est[i].math);
+        int sociales = stoi(datos_est[i].sociales);
+        int biologia = stoi(datos_est[i].biologia);
+        int fisica = stoi(datos_est[i].fisica);
+        int EF = stoi(datos_est[i].EF);
+        int artes=stoi(datos_est[i].artes);
+        float suma = (math+sociales+biologia+fisica+EF+artes);
+        float promedio = suma / 6;
+        cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(14)<< fixed <<setprecision(2) << promedio<<endl;
+    }    
+    eleccion_archivo();
 }
 
 void menu_mostrar_Estudiante(){
@@ -62,3 +94,4 @@ void menu_mostrar_Estudiante(){
         menu_mostrar_Estudiante();
     }
 }
+
