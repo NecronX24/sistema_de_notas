@@ -7,6 +7,17 @@
 #include "struct.h"
 using namespace std;
 
+float promediar(int i){
+    int math = stoi(datos_est[i].math);
+    int sociales = stoi(datos_est[i].sociales);
+    int biologia = stoi(datos_est[i].biologia);
+    int fisica = stoi(datos_est[i].fisica);
+    int EF = stoi(datos_est[i].EF);
+    int artes=stoi(datos_est[i].artes);
+    float suma = (math+sociales+biologia+fisica+EF+artes);
+    return suma / 6;
+}
+
 void mostrar_individual(){
     quicksort(datos_est,0,estudiantes-1,1);
     cout<<"Escribe el nombre y apellido de la persona a buscar\n>> ";
@@ -16,14 +27,7 @@ void mostrar_individual(){
     Emmery Caudelier 294
     Emmery Brogini 293*/
     int position = exponentialSearch(datos_est, estudiantes-1, nombre, apellido);
-    int math = stoi(datos_est[position].math);
-    int sociales = stoi(datos_est[position].sociales);
-    int biologia = stoi(datos_est[position].biologia);
-    int fisica = stoi(datos_est[position].fisica);
-    int EF = stoi(datos_est[position].EF);
-    int artes=stoi(datos_est[position].artes);
-    float suma = (math+sociales+biologia+fisica+EF+artes);
-    float promedio = suma / 6;
+    float promedio = promediar(position);
     cout<< datos_est[position]. nombre<<" "<< datos_est[position].apellido << " tiene un promedio de " << fixed <<setprecision(2) << promedio<<endl;
     quicksort(datos_est,0,estudiantes-1,2);
 }
@@ -32,14 +36,7 @@ void pasar_a_archivo(){
     outfile.open("Estudiantes_y_Promedio.csv");
     outfile<<"Nombre,Apellido,Notas Promedio"<<endl;
     for (int i=0; i<estudiantes; i++){
-        int math = stoi(datos_est[i].math);
-        int sociales = stoi(datos_est[i].sociales);
-        int biologia = stoi(datos_est[i].biologia);
-        int fisica = stoi(datos_est[i].fisica);
-        int EF = stoi(datos_est[i].EF);
-        int artes=stoi(datos_est[i].artes);
-        float suma = (math+sociales+biologia+fisica+EF+artes);
-        float promedio = suma / 6;
+        float promedio = promediar(i);
         outfile<<datos_est[i].nombre<<","<<datos_est[i].apellido<<","<< fixed <<setprecision(2) << promedio<<endl;
     }    
     outfile.close();
@@ -68,14 +65,7 @@ void mostrar_total(){
     cout<< "Se mostraran los alumnos con su nota promedio:"<<endl;
     cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(14)<<"Notas promedio"<<endl;
     for (int i=0; i<estudiantes; i++){
-        int math = stoi(datos_est[i].math);
-        int sociales = stoi(datos_est[i].sociales);
-        int biologia = stoi(datos_est[i].biologia);
-        int fisica = stoi(datos_est[i].fisica);
-        int EF = stoi(datos_est[i].EF);
-        int artes=stoi(datos_est[i].artes);
-        float suma = (math+sociales+biologia+fisica+EF+artes);
-        float promedio = suma / 6;
+        float promedio = promediar(i);
         cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(14)<< fixed <<setprecision(2) << promedio<<endl;
     }    
     eleccion_archivo();
