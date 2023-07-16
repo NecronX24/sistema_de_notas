@@ -4,6 +4,7 @@
 #include "Mostrar_Estudiante.h"
 #include "Materias_con_Cantidad_Alumnos.h"
 #include "Editar_Informacion_Estudiante.h"
+#include "Promedio_Notas_Materia.h"
 using namespace std;
 
 void volver_a_inicio();
@@ -44,7 +45,7 @@ void menu_eleccion(int temp){
         break;
 
     case 5:
-        
+        promedio_notas();
         break;
 
     case 6:
