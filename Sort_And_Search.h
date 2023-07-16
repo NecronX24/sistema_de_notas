@@ -73,6 +73,121 @@ int partition_math(datos arr[], int low, int high) {
   return (i + 1);
 }
 
+int partition_soci(datos arr[], int low, int high) {
+  datos pivot = arr[high];
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    int num = stoi(arr[j].sociales);
+    int pivote_int = stoi(pivot.sociales);
+    if (num > pivote_int) {
+      i++;
+      swap(arr[i], arr[j]);
+    } else if (num == pivote_int) {
+      float promedio_a = promediar(j);
+      float promedio_b = promediar(high);
+      if (promedio_a > promedio_b) {
+        i++;
+        swap(arr[i], arr[j]);
+      }
+    }
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
+int partition_bio(datos arr[], int low, int high) {
+  datos pivot = arr[high];
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    int num = stoi(arr[j].biologia);
+    int pivote_int = stoi(pivot.biologia);
+    if (num > pivote_int) {
+      i++;
+      swap(arr[i], arr[j]);
+    } else if (num == pivote_int) {
+      float promedio_a = promediar(j);
+      float promedio_b = promediar(high);
+      if (promedio_a > promedio_b) {
+        i++;
+        swap(arr[i], arr[j]);
+      }
+    }
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
+int partition_fisi(datos arr[], int low, int high) {
+  datos pivot = arr[high];
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    int num = stoi(arr[j].fisica);
+    int pivote_int = stoi(pivot.fisica);
+    if (num > pivote_int) {
+      i++;
+      swap(arr[i], arr[j]);
+    } else if (num == pivote_int) {
+      float promedio_a = promediar(j);
+      float promedio_b = promediar(high);
+      if (promedio_a > promedio_b) {
+        i++;
+        swap(arr[i], arr[j]);
+      }
+    }
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
+int partition_educ(datos arr[], int low, int high) {
+  datos pivot = arr[high];
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    int num = stoi(arr[j].EF);
+    int pivote_int = stoi(pivot.EF);
+    if (num > pivote_int) {
+      i++;
+      swap(arr[i], arr[j]);
+    } else if (num == pivote_int) {
+      float promedio_a = promediar(j);
+      float promedio_b = promediar(high);
+      if (promedio_a > promedio_b) {
+        i++;
+        swap(arr[i], arr[j]);
+      }
+    }
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
+int partition_art(datos arr[], int low, int high) {
+  datos pivot = arr[high];
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    int num = stoi(arr[j].artes);
+    int pivote_int = stoi(pivot.artes);
+    if (num > pivote_int) {
+      i++;
+      swap(arr[i], arr[j]);
+    } else if (num == pivote_int) {
+      float promedio_a = promediar(j);
+      float promedio_b = promediar(high);
+      if (promedio_a > promedio_b) {
+        i++;
+        swap(arr[i], arr[j]);
+      }
+    }
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
 // Quick Sort
 void quicksort(datos arr[], int low, int high, int caso){
   if (low < high) {
@@ -86,6 +201,21 @@ void quicksort(datos arr[], int low, int high, int caso){
           break;
         case 3:
           pi = partition_math(arr, low, high);
+          break;
+        case 4:
+          pi = partition_soci(arr, low, high);
+          break;
+        case 5:
+          pi = partition_bio(arr, low, high);
+          break;
+        case 6:
+          pi = partition_fisi(arr, low, high);
+          break;
+        case 7:
+          pi = partition_educ(arr, low, high);
+          break;
+        case 8:
+          pi = partition_art(arr, low, high);
           break;
         default:
           cout<<"Error desconocido";
