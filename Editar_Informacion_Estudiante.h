@@ -3,6 +3,7 @@
 #include "struct.h"
 #include <iomanip>
 #include "Sort_And_Search.h"
+#include "Agregar_Estudiante.h"
 
 void editar_seleccionado(int i){
     cout<<"Elija el numero del dato a editar\n>> ";
@@ -26,52 +27,7 @@ void editar_seleccionado(int i){
 
         case 4:{
             cout<<"Elige el nuevo genero:"<<endl;
-            cout<<"1. Male   2. Female   3. Agender   4. Bigender   5. Genderfluid   6. Genderqueer   7. Non-binary   8. Polygender\n>> ";
-            int genero;
-            cin>>genero;
-            int ciclo;
-            do{
-                ciclo=0;
-                switch(genero){
-                    case 1:
-                        datos_est[i].genero="Male";
-                        break;
-                    
-                    case 2:
-                        datos_est[i].genero="Female";
-                        break;
-
-                    case 3:
-                        datos_est[i].genero="Agender";
-                        break;
-
-                    case 4:
-                        datos_est[i].genero="Bigender";
-                        break;
-
-                    case 5:
-                        datos_est[i].genero="Genderfluid";
-                        break;
-                       
-                    case 6:
-                        datos_est[i].genero="Genderqueer";
-                        break;
-                    
-                    case 7:
-                        datos_est[i].genero="Non-binary";
-                        break;
-                    
-                    case 8:
-                        datos_est[i].genero="Polygender";
-                        break;
-                    
-                    default:
-                        cout<<"Elige bien";
-                        ciclo=1;
-                        break;
-            }
-            }while(ciclo==1);
-            //cin>>datos_est[i].genero;
+            seleccion_genero(i);
             break;
         }
 
