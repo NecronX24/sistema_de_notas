@@ -21,7 +21,7 @@ int main(){
     }
     csv_to_struct();
     inicio();
-    outfile.open("Prueba.csv");
+    outfile.open("Datos_Estudiantes_revisado.csv");
     struct_to_csv();
     return 0;
 }
