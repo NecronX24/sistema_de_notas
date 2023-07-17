@@ -13,7 +13,10 @@ string titulo;
 struct datos{
 string nombre, apellido, email, genero, math, sociales, biologia, fisica, EF, artes;
 int id;
-}datos_est[10000];
+};
+
+int lenght = 1001;
+datos *datos_est=new datos [1001];
 
 void csv_to_struct(){
     string dato;

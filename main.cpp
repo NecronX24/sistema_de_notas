@@ -42,6 +42,19 @@ void menu_eleccion(int temp){
         break;
 
     case 4:
+        if (estudiantes>=lenght){
+            datos *temp= new datos[lenght];
+            for (int i=0; i<estudiantes; i++){
+                temp[i]=datos_est[i];
+            }
+            delete[] datos_est;
+            lenght = lenght * 2;
+            datos_est = new datos [lenght];
+            for (int i=0; i<estudiantes; i++){
+                datos_est[i]=temp[i];
+            }
+            delete[] temp;
+        }
         agregar(estudiantes);
         estudiantes++;
         break;
