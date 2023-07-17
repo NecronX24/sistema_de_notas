@@ -18,11 +18,28 @@ int id;
 int lenght = 1001;
 datos *datos_est=new datos [1001];
 
+void extender_datos_est(){
+    datos *temp= new datos[lenght];
+            for (int i=0; i<estudiantes; i++){
+                temp[i]=datos_est[i];
+            }
+            delete[] datos_est;
+            lenght = lenght * 2;
+            datos_est = new datos [lenght];
+            for (int i=0; i<estudiantes; i++){
+                datos_est[i]=temp[i];
+            }
+            delete[] temp;
+}
+
 void csv_to_struct(){
     string dato;
     int get_title=0;
     int i = 0;
     while(infile){
+        if (estudiantes>=lenght){
+            extender_datos_est();
+        }
         if(get_title==0){
             getline(infile,dato,'\n');
             titulo=dato;
