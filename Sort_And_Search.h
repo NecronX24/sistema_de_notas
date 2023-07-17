@@ -243,7 +243,7 @@ int binarySearch(datos arr[], int l, int r, string x, string y)
             return binarySearch(arr, l, mid-1, x, y);
         return binarySearch(arr, mid+1, r, x, y);
     }
-    return -1;
+    throw false;
 }
 
 int exponentialSearch(datos arr[], int n, string x, string y)

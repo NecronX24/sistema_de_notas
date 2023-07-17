@@ -93,4 +93,5 @@ void agregar(int x){
     cout<<"Indica el genero del estudiante\n>> ";
     seleccion_genero(x);
     agregar_notas(x);
+    quicksort(datos_est,0,estudiantes-1,2);
 }

@@ -59,7 +59,7 @@ void promedio_art(){
 }
 
 void top(){
-    cout<<"Elige el top a mostrar"<<endl;
+    cout<<"Elige el top a mostrar (si se encuentran estudiantes con la misma nota, se pondran de primeros los de mayor promedio)"<<endl;
     cout<<"1. Top 10 de Matematicas"<<endl;
     cout<<"2. Top 10 de Sociales"<<endl;
     cout<<"3. Top 10 de Biologia"<<endl;
