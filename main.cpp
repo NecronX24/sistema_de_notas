@@ -5,6 +5,8 @@
 #include "Materias_con_Cantidad_Alumnos.h"
 #include "Editar_Informacion_Estudiante.h"
 #include "Promedio_Notas_Materia.h"
+#include "Top_estudiantes.h"
+#include "Boleta.h"
 using namespace std;
 
 void volver_a_inicio();
@@ -49,11 +51,11 @@ void menu_eleccion(int temp){
         break;
 
     case 6:
-        
+        top();
         break;
 
     case 7:
-        
+        hacer_boleta();
         break;
 
     default:
@@ -84,12 +86,10 @@ void volver_a_inicio(){
 }
 
 void inicio(){
-    cout<<"\n"<<estudiantes<<","<<datos_est[1000].apellido<<"\n";
     int eleccion;
     cout<< "Programa de Sistema de Notas de Estudiantes, elige tu opcion:"<<endl;
     cout<< "1. Mostrar un estudiante o todos y su nota promedio"<<endl;
     cout<< "2. Mostrar materias y la cantidad de alumnos (total, raspados y aprobados)" <<endl;
-    //por genero para mas puntos
     cout<< "3. Editar informacion de estudiantes" <<endl;
     cout<< "4. Agregar estudiante nuevo" <<endl;
     cout<< "5. Promedio de notas por materia" <<endl;
