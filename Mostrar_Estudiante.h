@@ -12,12 +12,15 @@ void mostrar_individual(){
     cout<<"Escribe el nombre y apellido de la persona a buscar\n>> ";
     string nombre, apellido;
     cin>>nombre>>apellido;
-    /*Ejemplo con personas con el mismo nombre
-    Emmery Caudelier 294
-    Emmery Brogini 293*/
+    try{
     int position = exponentialSearch(datos_est, estudiantes-1, nombre, apellido);
     float promedio = promediar(position);
     cout<< datos_est[position]. nombre<<" "<< datos_est[position].apellido << " tiene un promedio de " << fixed <<setprecision(2) << promedio<<endl;
+    }catch(bool flag){
+        if (!flag){ 
+            cout<<"No se encontro el estudiante que buscas"<<endl;
+        }
+    }
     quicksort(datos_est,0,estudiantes-1,2);
 }
 
