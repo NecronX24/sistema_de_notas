@@ -7,11 +7,10 @@ float promediar(int i){
     int math = stoi(datos_est[i].math);
     int sociales = stoi(datos_est[i].sociales);
     int biologia = stoi(datos_est[i].biologia);
-    int fisica = stoi(datos_est[i].fisica);
     int EF = stoi(datos_est[i].EF);
     int artes=stoi(datos_est[i].artes);
-    float suma = (math+sociales+biologia+fisica+EF+artes);
-    return suma / 6;
+    float suma = (math+sociales+biologia+EF+artes);
+    return suma / 5;
 }
 
 //Particiones para el Quick Sort
@@ -40,7 +39,9 @@ int partition_ID(datos arr[], int low, int high) {
   int i = low - 1;
   int j = 0;
   for (j = low; j <= high - 1; j++) {
-    if (arr[j].id <= pivot.id) {
+    int arreglo = stoi(arr[j].id);
+    int pivote = stoi(pivot.id);
+    if (arreglo <= pivote) {
       i++;
       swap(arr[i], arr[j]);
     } 
@@ -119,28 +120,7 @@ int partition_bio(datos arr[], int low, int high) {
   return (i + 1);
 }
 
-int partition_fisi(datos arr[], int low, int high) {
-  datos pivot = arr[high];
-  int i = low - 1;
-  int j = 0;
-  for (j = low; j <= high - 1; j++) {
-    int num = stoi(arr[j].fisica);
-    int pivote_int = stoi(pivot.fisica);
-    if (num > pivote_int) {
-      i++;
-      swap(arr[i], arr[j]);
-    } else if (num == pivote_int) {
-      float promedio_a = promediar(j);
-      float promedio_b = promediar(high);
-      if (promedio_a > promedio_b) {
-        i++;
-        swap(arr[i], arr[j]);
-      }
-    }
-  }
-  swap(arr[i + 1], arr[j]);
-  return (i + 1);
-}
+
 
 int partition_educ(datos arr[], int low, int high) {
   datos pivot = arr[high];
@@ -209,12 +189,9 @@ void quicksort(datos arr[], int low, int high, int caso){
           pi = partition_bio(arr, low, high);
           break;
         case 6:
-          pi = partition_fisi(arr, low, high);
-          break;
-        case 7:
           pi = partition_educ(arr, low, high);
           break;
-        case 8:
+        case 7:
           pi = partition_art(arr, low, high);
           break;
         default:

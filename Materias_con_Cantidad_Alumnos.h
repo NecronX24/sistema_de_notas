@@ -107,13 +107,6 @@ void Crear_Archivo(){
     asignar_cero();
     for(int i=0; i<estudiantes; i++){
         string gender=datos_est[i].genero;
-        int nota = stoi(datos_est[i].fisica);
-        Sumatoria_Notas_Materia(nota, gender);
-    }
-    archivo_notas<<"Fisica"<<","<<total[1]<<","<<total[0]<<","<<male[1]<<","<<male[0]<<","<<female[1]<<","<<female[0]<<","<<agender[1]<<","<<agender[0]<<","<<bigender[1]<<","<<bigender[0]<<","<<genderfluid[1]<<","<<genderfluid[0]<<","<<genderqueer[1]<<","<<genderqueer[0]<<","<<nonbinary[1]<<","<<nonbinary[0]<<","<<polygender[1]<<","<<polygender[0]<<endl;
-    asignar_cero();
-    for(int i=0; i<estudiantes; i++){
-        string gender=datos_est[i].genero;
         int nota = stoi(datos_est[i].EF);
         Sumatoria_Notas_Materia(nota, gender);
     }
@@ -130,22 +123,26 @@ void Crear_Archivo(){
 }
 
 void eleccion_repetir_menu(){
-    cout<< "Desea un archivo con los generos detallados? (1 para si, 0 para no)\n>> ";
-    int eleccion;
-    cin>>eleccion;
-    switch(eleccion){
-        case 0:
-            break;
+    int ciclo;
+    do{
+        ciclo = 0;
+        cout<< "Desea un archivo con los generos detallados? (1 para si, 0 para no)\n>> ";
+        int eleccion;
+        cin>>eleccion;
+        switch(eleccion){
+            case 0:
+                break;
 
-        case 1:
-            Crear_Archivo();
-            break;
-        
-        default:
-            cout<<"Elige bien"<<endl;
-            eleccion_repetir_menu();
-            break;
-    }
+            case 1:
+                Crear_Archivo();
+                break;
+            
+            default:
+                cout<<"Elige bien"<<endl;
+                ciclo=1;
+                break;
+        }
+    }while(ciclo==1);
 }
 
 void Materias_y_Alumnos(){
@@ -171,13 +168,6 @@ void Materias_y_Alumnos(){
         Sumatoria_Notas_Materia(nota, gender);
     }
     cout<<left<<setw(14)<<"Biologia"<<"|"<<left<<setw(5)<<total[1]<<" "<<left<<setw(5)<<total[0]<<"|"<<left<<setw(5)<<male[1]<<" "<<left<<setw(5)<<male[0]<<"|"<<left<<setw(5)<<female[1]<<" "<<left<<setw(5)<<female[0]<<"|"<<left<<setw(5)<<otro[1]<<" "<<left<<setw(5)<<otro[0]<<"|"<<endl;
-    asignar_cero();
-    for(int i=0; i<estudiantes; i++){
-        string gender=datos_est[i].genero;
-        int nota = stoi(datos_est[i].fisica);
-        Sumatoria_Notas_Materia(nota, gender);
-    }
-    cout<<left<<setw(14)<<"Fisica"<<"|"<<left<<setw(5)<<total[1]<<" "<<left<<setw(5)<<total[0]<<"|"<<left<<setw(5)<<male[1]<<" "<<left<<setw(5)<<male[0]<<"|"<<left<<setw(5)<<female[1]<<" "<<left<<setw(5)<<female[0]<<"|"<<left<<setw(5)<<otro[1]<<" "<<left<<setw(5)<<otro[0]<<"|"<<endl;
     asignar_cero();
     for(int i=0; i<estudiantes; i++){
         string gender=datos_est[i].genero;
