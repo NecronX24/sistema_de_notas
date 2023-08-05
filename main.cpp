@@ -12,19 +12,17 @@ using namespace std;
 void inicio();
 
 int main(){
-    infile.open("Datos_Estudiantes_revisado.csv");
+    infile.open("datos_estudiantes.csv");
     if(!infile){
         cout<<"Error abriendo el archivo"<<endl;
         return 0;
     }
     csv_to_struct();
     inicio();
-    outfile.open("Datos_Estudiantes_revisado.csv");
+    outfile.open("Prueba.csv");
     struct_to_csv();
     return 0;
 }
-
-   
 
 void inicio(){
      int ciclo;

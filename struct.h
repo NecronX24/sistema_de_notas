@@ -11,8 +11,7 @@ int estudiantes=0;
 string titulo;
 
 struct datos{
-string nombre, apellido, email, genero, math, sociales, biologia, fisica, EF, artes;
-int id;
+string id, nombre, apellido, genero, email, seccion, math, sociales, biologia, EF, artes;
 };
 
 int lenght = 1001;
@@ -49,15 +48,15 @@ void csv_to_struct(){
         switch(i){
             case 1:
                 getline(infile,dato,',');
-                datos_est[estudiantes].nombre=dato;
+                datos_est[estudiantes].id=dato;
                 break;
             case 2:
                 getline(infile,dato,',');
-                datos_est[estudiantes].apellido=dato;
+                datos_est[estudiantes].nombre=dato;
                 break;
             case 3:
                 getline(infile,dato,',');
-                datos_est[estudiantes].email=dato;
+                datos_est[estudiantes].apellido=dato;
                 break;
             case 4:
                 getline(infile,dato,',');
@@ -65,29 +64,32 @@ void csv_to_struct(){
                 break;
             case 5:
                 getline(infile,dato,',');
-                datos_est[estudiantes].math=dato;
+                datos_est[estudiantes].email=dato;
                 break;
             case 6:
                 getline(infile,dato,',');
-                datos_est[estudiantes].sociales=dato;
+                datos_est[estudiantes].seccion=dato;
                 break;
             case 7:
                 getline(infile,dato,',');
-                datos_est[estudiantes].biologia=dato;
+                datos_est[estudiantes].math=dato;
                 break;
             case 8:
                 getline(infile,dato,',');
-                datos_est[estudiantes].fisica=dato;
+                datos_est[estudiantes].sociales=dato;
                 break;
             case 9:
                 getline(infile,dato,',');
-                datos_est[estudiantes].EF=dato;
+                datos_est[estudiantes].biologia=dato;
                 break;
             case 10:
+                getline(infile,dato,',');
+                datos_est[estudiantes].EF=dato;
+                break;
+            case 11:
                 getline(infile,dato,'\n');
                 datos_est[estudiantes].artes=dato;
                 i=0;
-                datos_est[estudiantes].id=estudiantes;
                 estudiantes++;
                 break;
         }
@@ -101,7 +103,7 @@ void struct_to_csv(){
     outfile<<titulo<<endl;
     while(outfile){ 
         if(i<estudiantes){
-            outfile<<datos_est[i].nombre<<","<<datos_est[i].apellido<<","<<datos_est[i].email<<","<<datos_est[i].genero<<","<<datos_est[i].math<<","<<datos_est[i].sociales<<","<<datos_est[i].biologia<<","<<datos_est[i].fisica<<","<<datos_est[i].EF<<","<<datos_est[i].artes<<endl;
+            outfile<<datos_est[i].id<<","<<datos_est[i].nombre<<","<<datos_est[i].apellido<<","<<datos_est[i].genero<<","<<datos_est[i].email<<","<<datos_est[i].seccion<<","<<datos_est[i].math<<","<<datos_est[i].sociales<<","<<datos_est[i].biologia<<","<<datos_est[i].EF<<","<<datos_est[i].artes<<endl;
         }
         else{
             outfile.close();
