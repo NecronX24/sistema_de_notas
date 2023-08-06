@@ -34,7 +34,7 @@ void promedio_bio(){
 void promedio_educ(){
     cout<<"Top 10 de Educacion Fisica:"<<endl;
     cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Notas"<<endl;
-    quicksort(datos_est,0,estudiantes-1,7);
+    quicksort(datos_est,0,estudiantes-1,6);
     for(int i=0; i<10;i++){
         cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<<datos_est[i].EF<<endl;
     }
@@ -43,7 +43,7 @@ void promedio_educ(){
 void promedio_art(){
     cout<<"Top 10 de Artes:"<<endl;
     cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Notas"<<endl;
-    quicksort(datos_est,0,estudiantes-1,8);
+    quicksort(datos_est,0,estudiantes-1,7);
     for(int i=0; i<10;i++){
         cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<<datos_est[i].artes<<endl;
     }
