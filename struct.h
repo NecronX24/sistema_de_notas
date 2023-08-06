@@ -8,7 +8,8 @@ ifstream infile;
 ofstream outfile;
 
 int estudiantes=0;
-string titulo;
+int profesores=0;
+string titulo, titulo_profesor;
 
 struct datos{
 string id, nombre, apellido, genero, email, seccion, math, sociales, biologia, EF, artes;
@@ -29,6 +30,78 @@ void extender_datos_est(){
                 datos_est[i]=temp[i];
             }
             delete[] temp;
+}
+
+struct prof{
+    string id, nombre, apellido, genero, email, seccion, id_materia;
+};
+
+int lenght_profesores = 21;
+prof *datos_profesores=new prof [21];
+
+void extender_profesores(){
+    prof *temp= new prof [lenght_profesores];
+            for (int i=0; i<profesores; i++){
+                temp[i]=datos_profesores[i];
+            }
+            delete[] datos_profesores;
+            lenght_profesores = lenght_profesores * 2;
+            datos_profesores = new prof [lenght_profesores];
+            for (int i=0; i<profesores; i++){
+                datos_profesores[i]=temp[i];
+            }
+            delete[] temp;
+}
+
+void csv_to_struct_profesor(){
+    string dato;
+    int get_title=0;
+    int i = 0;
+    while(infile){
+        if (estudiantes>=lenght){
+            extender_profesores();
+        }
+        if(get_title==0){
+            getline(infile,dato,'\n');
+            titulo_profesor=dato;
+            get_title=1;
+        }
+        i++;
+        switch(i){
+            case 1:
+                getline(infile,dato,',');
+                datos_profesores[profesores].id=dato;
+                break;
+            case 2:
+                getline(infile,dato,',');
+                datos_profesores[profesores].nombre=dato;
+                break;
+            case 3:
+                getline(infile,dato,',');
+                datos_profesores[profesores].apellido=dato;
+                break;
+            case 4:
+                getline(infile,dato,',');
+                datos_profesores[profesores].genero=dato;
+                break;
+            case 5:
+                getline(infile,dato,',');
+                datos_profesores[profesores].email=dato;
+                break;
+            case 6:
+                getline(infile,dato,',');
+                datos_profesores[profesores].seccion=dato;
+                break;
+            
+            case 7:
+                getline(infile,dato,'\n');
+                datos_profesores[profesores].id_materia=dato;
+                i=0;
+                profesores++;
+                break;
+        }
+    }
+    infile.close();
 }
 
 void csv_to_struct(){
@@ -98,6 +171,20 @@ void csv_to_struct(){
 }
 
 //Se usa ',' en ves de ';' para que el archivo resultante se encuentre como el original
+void struct_to_csv_profesor(){
+    int i = 0;
+    outfile<<titulo_profesor<<endl;
+    while(outfile){ 
+        if(i<profesores){
+            outfile<<datos_profesores[i].id<<","<<datos_profesores[i].nombre<<","<<datos_profesores[i].apellido<<","<<datos_profesores[i].genero<<","<<datos_profesores[i].email<<","<<datos_profesores[i].seccion<<","<<datos_profesores[i].id_materia<<endl;
+        }
+        else{
+            outfile.close();
+        }
+        i++;
+    }
+}
+
 void struct_to_csv(){
     int i = 0;
     outfile<<titulo<<endl;

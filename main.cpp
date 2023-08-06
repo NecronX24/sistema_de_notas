@@ -20,9 +20,21 @@ int main(){
         return 0;
     }
     csv_to_struct();
+
+    infile.open("datos_profesores.csv");
+    if(!infile){
+        cout<<"Error abriendo el archivo"<<endl;
+        return 0;
+    }
+    csv_to_struct_profesor();
+
     inicio();
+
     outfile.open("Prueba.csv");
     struct_to_csv();
+
+    outfile.open("Prueba_profesor.csv");
+    struct_to_csv_profesor();
     return 0;
 }
 
