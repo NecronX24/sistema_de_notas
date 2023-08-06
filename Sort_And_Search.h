@@ -2,6 +2,8 @@
 #include <iostream>
 #include "struct.h"
 
+string seccion;
+
 //Sacar promedio
 float promediar(int i){
     int math = stoi(datos_est[i].math);
@@ -168,6 +170,21 @@ int partition_art(datos arr[], int low, int high) {
   return (i + 1);
 }
 
+int partition_prom(datos arr[], int low, int high) {
+  float pivot = promediar(high);
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    float arreglo = promediar(j);
+    if (arreglo >= pivot && datos_est[j].seccion==seccion){
+      i++;
+      swap(arr[i], arr[j]);
+    } 
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
 // Quick Sort
 void quicksort(datos arr[], int low, int high, int caso){
   if (low < high) {
@@ -193,6 +210,9 @@ void quicksort(datos arr[], int low, int high, int caso){
           break;
         case 7:
           pi = partition_art(arr, low, high);
+          break;
+        case 8:
+          pi = partition_prom(arr, low, high);
           break;
         default:
           cout<<"Error desconocido";

@@ -49,6 +49,18 @@ void promedio_art(){
     }
 }
 
+void promedio_seccion(){
+    cout<<"Indique la seccion de la que quiere ver el top (de la A a la F)\n>> ";
+    cin>> seccion;
+    cout<<"Top 10 de la seccion "<<seccion<<":"<<endl;
+    cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Promedio"<<endl;
+    quicksort(datos_est,0,estudiantes-1,8);
+    for(int i=0; i<10;i++){
+        float promedio = promediar(i);
+        cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<<fixed<<setprecision(2)<<promedio<<endl;
+    }
+}
+
 void top(){
     cout<<"Elige el top a mostrar (si se encuentran estudiantes con la misma nota, se pondran de primeros los de mayor promedio)"<<endl;
     cout<<"1. Top 10 de Matematicas"<<endl;
@@ -56,7 +68,9 @@ void top(){
     cout<<"3. Top 10 de Biologia"<<endl;
     cout<<"4. Top 10 de Educacion Fisica"<<endl;
     cout<<"5. Top 10 de Artes"<<endl;
-    cout<<"6. Top 10 de todas las materias\n>> ";
+    cout<<"6. Top 10 de todas las materias"<<endl;
+    cout<<"7. Top 10 de una seccion en especifico"<<endl;
+    cout<<">> ";
     int eleccion=0;
     cin>>eleccion;
     switch(eleccion){
@@ -91,6 +105,9 @@ void top(){
             cout<<"\n";
             promedio_art();
             cout<<"\n";
+            break;
+        case 7:
+            promedio_seccion();
             break;
         default:
             cout<<"Elige bien"<<endl;
