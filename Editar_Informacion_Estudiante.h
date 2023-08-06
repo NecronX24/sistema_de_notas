@@ -9,6 +9,7 @@ void editar_seleccionado(int i){
     cout<<"Elija el numero del dato a editar\n>> ";
     int eleccion;
     cin>> eleccion;
+    int ciclo;
     switch(eleccion){
         case 1:
             cout<<"Elige el nuevo nombre\n>> ";
@@ -32,8 +33,15 @@ void editar_seleccionado(int i){
         }
 
         case 5:
-            cout<<"Elige la nueva seccion\n>> ";
-            cin>>datos_est[i].seccion;
+            do{
+                ciclo = 0;
+                cout<<"Elige la nueva seccion\n>> ";
+                cin>>datos_est[i].seccion;
+                if(datos_est[i].seccion !="A" && datos_est[i].seccion !="B" && datos_est[i].seccion !="C"&& datos_est[i].seccion !="D" && datos_est[i].seccion !="E" && datos_est[i].seccion !="F"){
+                    cout<< "Elige bien la seccion"<<endl;
+                    ciclo = 1;
+                }
+            }while(ciclo==1);
             break;
 
         case 6:

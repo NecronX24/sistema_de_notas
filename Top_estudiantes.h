@@ -50,8 +50,16 @@ void promedio_art(){
 }
 
 void promedio_seccion(){
-    cout<<"Indique la seccion de la que quiere ver el top (de la A a la F)\n>> ";
-    cin>> seccion;
+    int ciclo;
+    do{
+        ciclo = 0;
+        cout<<"Indique la seccion de la que quiere ver el top (de la A a la F)\n>> ";
+        cin>> seccion;
+        if(seccion !="A" && seccion !="B" && seccion !="C"&& seccion !="D" && seccion !="E" && seccion !="F"){
+            cout<< "Elige bien la seccion"<<endl;
+            ciclo = 1;
+        }
+    }while(ciclo==1);
     cout<<"Top 10 de la seccion "<<seccion<<":"<<endl;
     cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Promedio"<<endl;
     quicksort(datos_est,0,estudiantes-1,8);

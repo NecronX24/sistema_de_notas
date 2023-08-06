@@ -94,7 +94,15 @@ void agregar(int x){
     seleccion_genero(x);
     cout<<"Indica el email del estudiante\n>> ";
     cin>> datos_est[x].email;
-    cout<<"Indica la seccion del estudiante\n>> ";
-    cin>> datos_est[x].seccion;
+    int ciclo;
+    do{
+        ciclo = 0;
+        cout<<"Indica la seccion del estudiante\n>> ";
+        cin>> datos_est[x].seccion;
+    if(datos_est[x].seccion !="A" && datos_est[x].seccion !="B" && datos_est[x].seccion !="C"&& datos_est[x].seccion !="D" && datos_est[x].seccion !="E" && datos_est[x].seccion !="F"){
+            cout<< "Elige bien la seccion"<<endl;
+            ciclo = 1;
+        }
+    }while(ciclo==1);
     agregar_notas(x);
 }
