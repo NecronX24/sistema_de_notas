@@ -58,7 +58,7 @@ void csv_to_struct_profesor(){
     int get_title=0;
     int i = 0;
     while(infile){
-        if (estudiantes>=lenght){
+        if (profesores>=lenght){
             extender_profesores();
         }
         if(get_title==0){
