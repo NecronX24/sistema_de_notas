@@ -11,6 +11,7 @@
 #include "Estudiantes_Aplazados.h"
 #include "Modificar_Datos_Profesor.h"
 #include "Buscar_Estudiante_Profesor.h"
+#include "Rendimiento_Profesor.h"
 using namespace std;
 
 void inicio();
@@ -60,6 +61,7 @@ void inicio(){
             cout<< " 9. Mostrar estudiante/s con mayor cantidad de materias aplazadas" <<endl;
             cout<< "10. Agregar, editar o borrar profesor" <<endl;
             cout<< "11. Buscar estudiante y su profesor de materia indicada" <<endl;
+            cout<< "12. Evaluar rendimiento de un profesor"<<endl;
             cout<< ">> "; 
             cin>> eleccion;
             switch (eleccion){
@@ -109,6 +111,10 @@ void inicio(){
 
             case 11:
                 buscar_estudiante_profesor();
+                break;
+
+            case 12:
+                rendimiento_profesor();
                 break;
 
             default:
