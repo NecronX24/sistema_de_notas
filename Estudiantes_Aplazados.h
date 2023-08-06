@@ -13,9 +13,9 @@ void mostrar_estudiantes_aplazados(){
         int EF = stoi(datos_est[i].EF);
         int artes = stoi(datos_est[i].artes);
         if(math < 10 && sociales < 10 && biologia < 10 && EF < 10 && artes < 10){
-            cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(18)<<datos_est[i].apellido<<left<<setw(18)<<"5"<<endl;
+            cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(18)<<datos_est[i].apellido<<left<<setw(18)<<"Todas"<<endl;
         }
     }
 
-    quicksort(datos_est,0,estudiantes-1,2);
+    //quicksort(datos_est,0,estudiantes-1,2);
 }
