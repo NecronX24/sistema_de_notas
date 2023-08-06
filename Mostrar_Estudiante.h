@@ -15,7 +15,7 @@ void mostrar_individual(){
     try{
     int position = exponentialSearch(datos_est, estudiantes-1, nombre, apellido);
     float promedio = promediar(position);
-    cout<< datos_est[position]. nombre<<" "<< datos_est[position].apellido <<" de genero "<< datos_est[position].genero<< " tiene un promedio de " << promedio<< ", su correo es "<<datos_est[position].email<< " y su seccion es la "<< datos_est[position].seccion<<endl;
+    cout<< datos_est[position]. nombre<<" "<< datos_est[position].apellido <<" de genero "<< datos_est[position].genero<< " tiene un promedio de " << fixed <<setprecision(2)<<promedio<< ", su correo es "<<datos_est[position].email<< " y su seccion es la "<< datos_est[position].seccion<<endl;
     }catch(bool flag){
         if (!flag){ 
             cout<<"No se encontro el estudiante que buscas"<<endl;
@@ -29,7 +29,7 @@ void pasar_a_archivo(){
     outfile<<"Nombre,Apellido,Genero,Email,Seccion,Notas Promedio"<<endl;
     for (int i=0; i<estudiantes; i++){
         float promedio = promediar(i);
-        outfile<<datos_est[i].nombre<<","<<datos_est[i].apellido<<","<< datos_est[i].genero<<","<<datos_est[i].email<<","<< datos_est[i].seccion<<","<< promedio<<endl;
+        outfile<<datos_est[i].nombre<<","<<datos_est[i].apellido<<","<< datos_est[i].genero<<","<<datos_est[i].email<<","<< datos_est[i].seccion<<","<< fixed <<setprecision(2)<<promedio<<endl;
     }    
     outfile.close();
 }
@@ -59,10 +59,10 @@ void eleccion_archivo(){
 
 void mostrar_total(){
     cout<< "Se mostraran los alumnos con su nota promedio:"<<endl;
-    cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(14)<<"Notas promedio"<<endl;
+    cout<<left<<setw(12)<<"Nombre"<<left<<setw(18)<<"Apellido"<<left<<setw(12)<<"Genero"<<left<<setw(38)<<"Email"<<left<<setw(8)<<"Seccion"<<left<<setw(14)<<"Notas promedio"<<endl;
     for (int i=0; i<estudiantes; i++){
         float promedio = promediar(i);
-        cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(14)<< fixed <<setprecision(2) << promedio<<endl;
+        cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(18)<<datos_est[i].apellido<<left<<setw(12)<<datos_est[i].genero<<left<<setw(38)<<datos_est[i].email<<left<<setw(8)<<datos_est[i].seccion<<left<<setw(14)<< fixed <<setprecision(2) << promedio<<endl;
     }    
     eleccion_archivo();
 }
