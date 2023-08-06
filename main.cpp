@@ -7,6 +7,7 @@
 #include "Promedio_Notas_Materia.h"
 #include "Top_estudiantes.h"
 #include "Boleta.h"
+#include "Borrar_Estudiante.h"
 using namespace std;
 
 void inicio();
@@ -40,6 +41,7 @@ void inicio(){
             cout<< "5. Promedio de notas por materia" <<endl;
             cout<< "6. Top 10 estudiantes por materia" <<endl;
             cout<< "7. Crear boleta" <<endl;
+            cout<< "8. Borrar estudiante" <<endl;
             cout<< ">> "; 
             cin>> eleccion;
             switch (eleccion){
@@ -73,6 +75,10 @@ void inicio(){
 
             case 7:
                 hacer_boleta();
+                break;
+
+            case 8:
+                borrar_estudiante();
                 break;
 
             default:
