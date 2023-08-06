@@ -185,6 +185,24 @@ int partition_prom(datos arr[], int low, int high) {
   return (i + 1);
 }
 
+int partition_aplazados(datos arr[], int low, int high) {
+  int i = low - 1;
+  int j = 0;
+  for (j = low; j <= high - 1; j++) {
+    int arreglo_math = stoi(arr[j].math);
+    int arreglo_sociales = stoi(arr[j].sociales);
+    int arreglo_biologia = stoi(arr[j].biologia);
+    int arreglo_EF = stoi(arr[j].EF);
+    int arreglo_artes = stoi(arr[j].artes);
+    if (arreglo_math <= 9 && arreglo_sociales <= 9 && arreglo_biologia <= 9 && arreglo_EF <= 9 && arreglo_artes <= 9) {
+      i++;
+      swap(arr[i], arr[j]);
+    } 
+  }
+  swap(arr[i + 1], arr[j]);
+  return (i + 1);
+}
+
 // Quick Sort
 void quicksort(datos arr[], int low, int high, int caso){
   if (low < high) {
@@ -213,6 +231,9 @@ void quicksort(datos arr[], int low, int high, int caso){
           break;
         case 8:
           pi = partition_prom(arr, low, high);
+          break;
+        case 9:
+          pi = partition_aplazados(arr, low, high);
           break;
         default:
           cout<<"Error desconocido";
