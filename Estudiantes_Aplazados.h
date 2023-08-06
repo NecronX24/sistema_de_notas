@@ -17,5 +17,5 @@ void mostrar_estudiantes_aplazados(){
         }
     }
 
-    //quicksort(datos_est,0,estudiantes-1,2);
+    quicksort(datos_est,0,estudiantes-1,2);
 }
