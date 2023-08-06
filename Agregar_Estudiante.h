@@ -4,11 +4,11 @@
 using namespace std;
 
 void seleccion_genero(int i){
+    int ciclo;
+    do{
     cout<<"1. Male   2. Female   3. Agender   4. Bigender   5. Genderfluid   6. Genderqueer   7. Non-binary   8. Polygender\n>> ";
             int genero;
             cin>>genero;
-            int ciclo;
-            do{
                 ciclo=0;
                 switch(genero){
                     case 1:
@@ -44,7 +44,7 @@ void seleccion_genero(int i){
                         break;
                     
                     default:
-                        cout<<"Elige bien";
+                        cout<<"Elige bien"<<endl;
                         ciclo=1;
                         break;
             }
