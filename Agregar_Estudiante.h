@@ -87,7 +87,7 @@ void agregar_notas(int x){
 }
 
 void agregar(int x){
-    datos_est[x].id= to_string(estudiantes);
+    datos_est[x].id= to_string(estudiantes+1);
     cout<<"Indica el nombre y el apellido del estudiante\n>> ";
     cin>> datos_est[x].nombre>> datos_est[x].apellido;
     cout<<"Indica el genero del estudiante\n>> ";
