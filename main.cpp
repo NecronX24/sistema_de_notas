@@ -10,6 +10,7 @@
 #include "Borrar_Estudiante.h"
 #include "Estudiantes_Aplazados.h"
 #include "Modificar_Datos_Profesor.h"
+#include "Buscar_Estudiante_Profesor.h"
 using namespace std;
 
 void inicio();
@@ -58,6 +59,7 @@ void inicio(){
             cout<< " 8. Borrar estudiante" <<endl;
             cout<< " 9. Mostrar estudiante/s con mayor cantidad de materias aplazadas" <<endl;
             cout<< "10. Agregar, editar o borrar profesor" <<endl;
+            cout<< "11. Buscar estudiante y su profesor de materia indicada" <<endl;
             cout<< ">> "; 
             cin>> eleccion;
             switch (eleccion){
@@ -103,6 +105,10 @@ void inicio(){
 
             case 10:
                 menu_modificar_profesor();
+                break;
+
+            case 11:
+                buscar_estudiante_profesor();
                 break;
 
             default:
