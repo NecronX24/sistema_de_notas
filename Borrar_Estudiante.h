@@ -13,7 +13,7 @@ void borrar_estudiante(){
         }
         int eleccion = 0;
         do{
-            cout<<"Desea borrar "<< datos_est[id_borrar].nombre<<" de ID: " << datos_est[id_borrar].id << "? (1 para si, 0 para no)\n>> ";
+            cout<<"Desea borrar a "<< datos_est[id_borrar].nombre<<" "<<datos_est[id_borrar].apellido<<" de ID: " << datos_est[id_borrar].id << "? (1 para si, 0 para no)\n>> ";
             cin>> eleccion;
             if (eleccion== 1){
                 for (id_borrar; id_borrar<estudiantes; id_borrar++){
