@@ -1,6 +1,5 @@
 #pragma once
 #include "struct.h"
-#include <iomanip>
 
 void buscar_estudiante_profesor(){
     cout<< "Indique el ID del estudiante que desea buscar\n>> ";
@@ -40,7 +39,7 @@ void buscar_estudiante_profesor(){
             for(int i=0; i<profesores; i++){
                 if (datos_profesores[i].seccion==datos_est[id].seccion && materia== datos_profesores[i].id_materia){
                     if (no_profesor==0){
-                        cout<<left<<setw(25)<<"Profesor:"<<endl;
+                        cout<<"Profesor:"<<endl;
                         no_profesor=1;
                     }
                     cout<< datos_profesores[i].nombre<<" "<<datos_profesores[i].apellido<<endl;
