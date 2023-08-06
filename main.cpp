@@ -9,6 +9,7 @@
 #include "Boleta.h"
 #include "Borrar_Estudiante.h"
 #include "Estudiantes_Aplazados.h"
+#include "Modificar_Datos_Profesor.h"
 using namespace std;
 
 void inicio();
@@ -47,15 +48,16 @@ void inicio(){
             ciclo_dos=0;
             int eleccion;
             cout<< "Programa de Sistema de Notas de Estudiantes, elige tu opcion:"<<endl;
-            cout<< "1. Mostrar un estudiante o todos y su nota promedio"<<endl;
-            cout<< "2. Mostrar materias y la cantidad de alumnos (total, raspados y aprobados)" <<endl;
-            cout<< "3. Editar informacion de estudiantes" <<endl;
-            cout<< "4. Agregar estudiante nuevo" <<endl;
-            cout<< "5. Promedio de notas por materia" <<endl;
-            cout<< "6. Top 10 estudiantes por materia" <<endl;
-            cout<< "7. Crear boleta" <<endl;
-            cout<< "8. Borrar estudiante" <<endl;
-            cout<< "9. Mostrar estudiante/s con mayor cantidad de materias aplazadas" <<endl;
+            cout<< " 1. Mostrar un estudiante o todos y su nota promedio"<<endl;
+            cout<< " 2. Mostrar materias y la cantidad de alumnos (total, raspados y aprobados)" <<endl;
+            cout<< " 3. Editar informacion de estudiantes" <<endl;
+            cout<< " 4. Agregar estudiante nuevo" <<endl;
+            cout<< " 5. Promedio de notas por materia" <<endl;
+            cout<< " 6. Top 10 estudiantes por materia" <<endl;
+            cout<< " 7. Crear boleta" <<endl;
+            cout<< " 8. Borrar estudiante" <<endl;
+            cout<< " 9. Mostrar estudiante/s con mayor cantidad de materias aplazadas" <<endl;
+            cout<< "10. Agregar, editar o borrar profesor" <<endl;
             cout<< ">> "; 
             cin>> eleccion;
             switch (eleccion){
@@ -97,6 +99,10 @@ void inicio(){
 
             case 9:
                 mostrar_estudiantes_aplazados();
+                break;
+
+            case 10:
+                menu_modificar_profesor();
                 break;
 
             default:
