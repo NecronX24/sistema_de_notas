@@ -10,6 +10,7 @@ void mostrar_individual(){
     cout<<"Escribe el ID de la persona a buscar\n>> ";
     int position;
     cin>>position;
+    position--;
     try{
     if(position>=estudiantes) throw false;
     float promedio = promediar(position);

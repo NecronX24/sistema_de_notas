@@ -8,8 +8,7 @@ void borrar_estudiante(){
         cin>> id_borrar;
         id_borrar--;
         if (id_borrar>=estudiantes){
-            bool flag;
-            throw flag;
+            throw false;
         }
         int eleccion = 0;
         do{
@@ -17,6 +16,7 @@ void borrar_estudiante(){
             cin>> eleccion;
             if (eleccion== 1){
                 for (id_borrar; id_borrar<estudiantes; id_borrar++){
+                    cout<<estudiantes;
                     datos_est[id_borrar].id = to_string(id_borrar+1);
                     datos_est[id_borrar].nombre = datos_est[id_borrar+1].nombre;
                     datos_est[id_borrar].apellido = datos_est[id_borrar+1].apellido;
@@ -30,12 +30,16 @@ void borrar_estudiante(){
                     datos_est[id_borrar].artes = datos_est[id_borrar+1].artes;
                 }
                 estudiantes--;
+                cout<<"a";
             } else if (eleccion!=0 && eleccion !=1){
                 cout<<"Elige bien"<<endl;
+                cout<<"b";
             }
         } while (eleccion!=0 && eleccion !=1);
     }catch(bool flag){
+        if(!false){
         cout<< "El ID del estudiante indicado es mayor a la cantidad de estudiantes que existen"<<endl;
         borrar_estudiante();
+        }
     }
 }

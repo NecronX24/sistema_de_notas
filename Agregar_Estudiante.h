@@ -97,7 +97,7 @@ void agregar(int x){
     int ciclo;
     do{
         ciclo = 0;
-        cout<<"Indica la seccion del estudiante\n>> ";
+        cout<<"Indica la seccion del estudiante (de la A a la F)\n>> ";
         cin>> datos_est[x].seccion;
     if(datos_est[x].seccion !="A" && datos_est[x].seccion !="B" && datos_est[x].seccion !="C"&& datos_est[x].seccion !="D" && datos_est[x].seccion !="E" && datos_est[x].seccion !="F"){
             cout<< "Elige bien la seccion"<<endl;
