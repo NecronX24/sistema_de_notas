@@ -1,6 +1,30 @@
 #pragma once
 #include "struct.h"
 
+string buscar_materia_por_ID(int i){
+switch(i){
+                case 1:
+                    return "1001";
+                    break;
+                
+                case 2:
+                    return "1002";
+                    break;
+
+                case 3:
+                    return "1003";
+                    break;
+
+                case 4:
+                    return "1004";
+                    break;
+                
+                case 5:
+                    return "1005";
+                    break;
+            }
+}
+
 void buscar_estudiante_profesor(){
     cout<< "Indique el ID del estudiante que desea buscar\n>> ";
     int id, ciclo, materia_buscar;
@@ -15,27 +39,7 @@ void buscar_estudiante_profesor(){
         cout<< "1. Matematicas   2. Sociales   3. Biologia   4. EF    5. Artes\n>> ";
         cin>> materia_buscar;
         if (materia_buscar>0 && materia_buscar<6){
-            switch(materia_buscar){
-                case 1:
-                    materia = "1001";
-                    break;
-                
-                case 2:
-                    materia = "1002";
-                    break;
-
-                case 3:
-                    materia = "1003";
-                    break;
-
-                case 4:
-                    materia = "1004";
-                    break;
-                
-                case 5:
-                    materia = "1005";
-                    break;
-            }
+            materia = buscar_materia_por_ID(materia_buscar);
             for(int i=0; i<profesores; i++){
                 if (datos_profesores[i].seccion==datos_est[id].seccion && materia== datos_profesores[i].id_materia){
                     if (no_profesor==0){
