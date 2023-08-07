@@ -2,7 +2,6 @@
 #include <iostream>
 #include "struct.h"
 #include <iomanip>
-#include "Sort_And_Search.h"
 #include "Agregar_Estudiante.h"
 
 void editar_seleccionado(int i){

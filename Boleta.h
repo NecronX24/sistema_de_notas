@@ -2,7 +2,6 @@
 #include <iostream>
 #include <iomanip>
 #include "struct.h"
-#include "Sort_And_Search.h"
 using namespace std;
 
 void boleta_archivo(int position){

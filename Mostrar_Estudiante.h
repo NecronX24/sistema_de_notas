@@ -3,7 +3,6 @@
 #include <iomanip>
 #include <fstream>
 #include <string>
-#include "Sort_And_Search.h"
 #include "struct.h"
 using namespace std;
 
