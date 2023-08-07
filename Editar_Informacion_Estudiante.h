@@ -77,12 +77,12 @@ void editar_seleccionado(int i){
 }
 
 void editar(){
-    string nombre, apellido;
-    cout<<"Ingrese el nombre y apellido del estudiante a buscar\n>> ";
-    cin>> nombre>> apellido;
-    quicksort(datos_est,0,estudiantes-1,1);
+    int position;
+    cout<<"Ingrese el ID del estudiante a buscar\n>> ";
+    cin>> position;
+    position--;
     try{
-    int position = exponentialSearch(datos_est, estudiantes-1, nombre, apellido);
+    if(position>=estudiantes) throw false;
     cout<<left<<setw(12)<<"1.Nombre"<<left<<setw(12)<<"2.Apellido"<<left<<setw(12)<<"3.Genero"<<left<<setw(33)<<"4.Email"<<left<<setw(10)<<"5.Seccion"<<left<<setw(8)<<"6.Maths"<<left<<setw(11)<<"7.Sociales"<<left<<setw(11)<<"8.Biologia"<<left<<setw(11)<<"9.E.Fisica"<<left<<setw(8)<<"10.Artes"<<endl;
     cout<<left<<setw(12)<<datos_est[position].nombre<<left<<setw(12)<<datos_est[position].apellido<<left<<setw(12)<<datos_est[position].genero<<left<<setw(33)<<datos_est[position].email<<left<<setw(10)<<datos_est[position].seccion<<left<<setw(8)<<datos_est[position].math<<left<<setw(11)<<datos_est[position].sociales<<left<<setw(11)<<datos_est[position].biologia<<left<<setw(11)<<datos_est[position].EF<<left<<setw(8)<<datos_est[position].artes<<endl;
     editar_seleccionado(position);
@@ -91,5 +91,4 @@ void editar(){
             cout<<"No se encontro el estudiante que buscas"<<endl;
         }
     }
-    quicksort(datos_est,0,estudiantes-1,2);
 }

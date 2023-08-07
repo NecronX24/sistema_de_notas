@@ -16,24 +16,6 @@ float promediar(int i){
 }
 
 //Particiones para el Quick Sort
-int partition_FirstName(datos arr[], int low, int high) {
-  datos pivot = arr[high];
-  int i = low - 1;
-  int j = 0;
-  for (j = low; j <= high - 1; j++) {
-    if (arr[j].nombre < pivot.nombre) {
-      i++;
-      swap(arr[i], arr[j]);
-    } else if (arr[j].nombre == pivot.nombre) {
-      if (arr[j].apellido < pivot.apellido) {
-        i++;
-        swap(arr[i], arr[j]);
-      }
-    }
-  }
-  swap(arr[i + 1], arr[j]);
-  return (i + 1);
-}
 
 //Ordenar para la forma inicial
 int partition_ID(datos arr[], int low, int high) {
@@ -184,7 +166,7 @@ int partition_prom(datos arr[], int low, int high) {
   swap(arr[i + 1], arr[j]);
   return (i + 1);
 }
-
+// SE QUEDA
 int partition_aplazados(datos arr[], int low, int high) {
   int i = low - 1;
   int j = 0;
@@ -208,9 +190,6 @@ void quicksort(datos arr[], int low, int high, int caso){
   if (low < high) {
     int pi;
     switch(caso){
-        case 1:
-          pi = partition_FirstName(arr, low, high);
-          break;
         case 2:
           pi = partition_ID(arr, low, high);
           break;

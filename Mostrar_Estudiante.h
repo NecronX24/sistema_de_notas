@@ -8,12 +8,11 @@
 using namespace std;
 
 void mostrar_individual(){
-    quicksort(datos_est,0,estudiantes-1,1);
-    cout<<"Escribe el nombre y apellido de la persona a buscar\n>> ";
-    string nombre, apellido;
-    cin>>nombre>>apellido;
+    cout<<"Escribe el ID de la persona a buscar\n>> ";
+    int position;
+    cin>>position;
     try{
-    int position = exponentialSearch(datos_est, estudiantes-1, nombre, apellido);
+    if(position>=estudiantes) throw false;
     float promedio = promediar(position);
     cout<< datos_est[position]. nombre<<" "<< datos_est[position].apellido <<" de genero "<< datos_est[position].genero<< " tiene un promedio de " << fixed <<setprecision(2)<<promedio<< ", su correo es "<<datos_est[position].email<< " y su seccion es la "<< datos_est[position].seccion<<endl;
     }catch(bool flag){
@@ -21,7 +20,6 @@ void mostrar_individual(){
             cout<<"No se encontro el estudiante que buscas"<<endl;
         }
     }
-    quicksort(datos_est,0,estudiantes-1,2);
 }
 
 void pasar_a_archivo(){

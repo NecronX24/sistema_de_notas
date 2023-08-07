@@ -13,12 +13,12 @@ void boleta_archivo(int position){
 }
 
 void hacer_boleta(){
-    cout<<"Coloca el nombre y el apellido del estudiante a buscar\n>> ";
-    string nombre, apellido;
-    cin>>nombre>>apellido;
-    quicksort(datos_est,0,estudiantes-1,1);
+    cout<<"Coloca el ID del estudiante a buscar\n>> ";
+    int position;
+    cin>>position;
+    position--;
     try{
-    int position = exponentialSearch(datos_est, estudiantes-1, nombre, apellido);
+    if(position>=estudiantes) throw false;
     cout<<left<<setw(19)<<"Nombre y apellido: "<<datos_est[position].nombre<<" "<<datos_est[position].apellido<<endl;
     cout<<left<<setw(19)<<"Genero: "<<datos_est[position].genero<<endl;
     cout<<left<<setw(19)<<"Email: "<<datos_est[position].email<<endl;
@@ -46,6 +46,4 @@ void hacer_boleta(){
             cout<<"No se encontro el estudiante que buscas"<<endl;
         }
     }
-
-    quicksort(datos_est,0,estudiantes-1,2);
 }
