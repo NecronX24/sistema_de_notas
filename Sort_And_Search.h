@@ -222,35 +222,3 @@ void quicksort(datos arr[], int low, int high, int caso){
     quicksort(arr, pi + 1, high, caso);
   }
 }
-
-//Exponential Search
-int binarySearch(datos arr[], int l, int r, string x, string y)
-{
-    if (r >= l)
-    {
-        int mid = l + (r - l)/2;
-        if (arr[mid].nombre == x){
-          if (arr[mid].apellido == y){
-              return mid;
-          }
-          else if (arr[mid].apellido > y)
-           return binarySearch(arr, l, mid-1, x, y);
-        }
-        if (arr[mid].nombre > x)
-            return binarySearch(arr, l, mid-1, x, y);
-        return binarySearch(arr, mid+1, r, x, y);
-    }
-    throw false;
-}
-
-int exponentialSearch(datos arr[], int n, string x, string y)
-{
-    if (arr[0].nombre == x)
-        return 0;
- 
-    int i = 1;
-    while (i < n && arr[i].nombre <= x)
-        i = i*2;
- 
-    return binarySearch(arr, i/2,min(i, n-1), x, y);
-}
