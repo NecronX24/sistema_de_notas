@@ -23,6 +23,7 @@ switch(i){
                     return "1005";
                     break;
             }
+        return "Error";
 }
 
 void buscar_estudiante_profesor(){
