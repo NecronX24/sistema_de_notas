@@ -2,13 +2,13 @@
 #include <iostream>
 #include "struct.h"
 #include <iomanip>
-#include "Sort_And_Search.h"
 #include "Agregar_Estudiante.h"
 
 void editar_seleccionado(int i){
     cout<<"Elija el numero del dato a editar\n>> ";
     int eleccion;
     cin>> eleccion;
+    int ciclo;
     switch(eleccion){
         case 1:
             cout<<"Elige el nuevo nombre\n>> ";
@@ -21,34 +21,41 @@ void editar_seleccionado(int i){
             break;
 
         case 3:
-            cout<<"Elige el nuevo email\n>> ";
-            cin>>datos_est[i].email;
+            cout<<"Elige el nuevo genero:"<<endl;
+            seleccion_genero(i);
             break;
 
         case 4:{
-            cout<<"Elige el nuevo genero:"<<endl;
-            seleccion_genero(i);
+            cout<<"Elige el nuevo email\n>> ";
+            cin>>datos_est[i].email;
             break;
         }
 
         case 5:
+            do{
+                ciclo = 0;
+                cout<<"Elige la nueva seccion\n>> ";
+                cin>>datos_est[i].seccion;
+                if(datos_est[i].seccion !="A" && datos_est[i].seccion !="B" && datos_est[i].seccion !="C"&& datos_est[i].seccion !="D" && datos_est[i].seccion !="E" && datos_est[i].seccion !="F"){
+                    cout<< "Elige bien la seccion"<<endl;
+                    ciclo = 1;
+                }
+            }while(ciclo==1);
+            break;
+
+        case 6:
             cout<<"Elige la nueva nota de Matematicas\n>> ";
             cin>>datos_est[i].math;
             break;
 
-        case 6:
+        case 7:
             cout<<"Elige la nueva nota de Sociales\n>> ";
             cin>>datos_est[i].sociales;
             break;
 
-        case 7:
+        case 8:
             cout<<"Elige la nueva nota de Biologia\n>> ";
             cin>>datos_est[i].biologia;
-            break;
-
-        case 8:
-            cout<<"Elige la nueva nota de Fisica\n>> ";
-            cin>>datos_est[i].fisica;
             break;
 
         case 9:
@@ -69,19 +76,18 @@ void editar_seleccionado(int i){
 }
 
 void editar(){
-    string nombre, apellido;
-    cout<<"Ingrese el nombre y apellido del estudiante a buscar\n>> ";
-    cin>> nombre>> apellido;
-    quicksort(datos_est,0,estudiantes-1,1);
+    int position;
+    cout<<"Ingrese el ID del estudiante a buscar\n>> ";
+    cin>> position;
+    position--;
     try{
-    int position = exponentialSearch(datos_est, estudiantes-1, nombre, apellido);
-    cout<<left<<setw(12)<<"1.Nombre"<<left<<setw(12)<<"2.Apellido"<<left<<setw(33)<<"3.Email"<<left<<setw(12)<<"4.Genero"<<left<<setw(8)<<"5.Maths"<<left<<setw(11)<<"6.Sociales"<<left<<setw(11)<<"7.Biologia"<<left<<setw(9)<<"8.Fisica"<<left<<setw(11)<<"9.E.Fisica"<<left<<setw(8)<<"10.Artes"<<endl;
-    cout<<left<<setw(12)<<datos_est[position].nombre<<left<<setw(12)<<datos_est[position].apellido<<left<<setw(33)<<datos_est[position].email<<left<<setw(12)<<datos_est[position].genero<<left<<setw(8)<<datos_est[position].math<<left<<setw(11)<<datos_est[position].sociales<<left<<setw(11)<<datos_est[position].biologia<<left<<setw(9)<<datos_est[position].fisica<<left<<setw(11)<<datos_est[position].EF<<left<<setw(8)<<datos_est[position].artes<<endl;
+    if(position>=estudiantes) throw false;
+    cout<<left<<setw(12)<<"1.Nombre"<<left<<setw(12)<<"2.Apellido"<<left<<setw(12)<<"3.Genero"<<left<<setw(33)<<"4.Email"<<left<<setw(10)<<"5.Seccion"<<left<<setw(8)<<"6.Maths"<<left<<setw(11)<<"7.Sociales"<<left<<setw(11)<<"8.Biologia"<<left<<setw(11)<<"9.E.Fisica"<<left<<setw(8)<<"10.Artes"<<endl;
+    cout<<left<<setw(12)<<datos_est[position].nombre<<left<<setw(12)<<datos_est[position].apellido<<left<<setw(12)<<datos_est[position].genero<<left<<setw(33)<<datos_est[position].email<<left<<setw(10)<<datos_est[position].seccion<<left<<setw(8)<<datos_est[position].math<<left<<setw(11)<<datos_est[position].sociales<<left<<setw(11)<<datos_est[position].biologia<<left<<setw(11)<<datos_est[position].EF<<left<<setw(8)<<datos_est[position].artes<<endl;
     editar_seleccionado(position);
     }catch(bool flag){
         if (!flag){ 
             cout<<"No se encontro el estudiante que buscas"<<endl;
         }
     }
-    quicksort(datos_est,0,estudiantes-1,2);
 }

@@ -31,19 +31,10 @@ void promedio_bio(){
     }
 }
 
-void promedio_fisi(){
-    cout<<"Top 10 de Fisica:"<<endl;
-    cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Notas"<<endl;
-    quicksort(datos_est,0,estudiantes-1,6);
-    for(int i=0; i<10;i++){
-        cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<<datos_est[i].fisica<<endl;
-    }
-}
-
 void promedio_educ(){
     cout<<"Top 10 de Educacion Fisica:"<<endl;
     cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Notas"<<endl;
-    quicksort(datos_est,0,estudiantes-1,7);
+    quicksort(datos_est,0,estudiantes-1,6);
     for(int i=0; i<10;i++){
         cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<<datos_est[i].EF<<endl;
     }
@@ -52,9 +43,29 @@ void promedio_educ(){
 void promedio_art(){
     cout<<"Top 10 de Artes:"<<endl;
     cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Notas"<<endl;
-    quicksort(datos_est,0,estudiantes-1,8);
+    quicksort(datos_est,0,estudiantes-1,7);
     for(int i=0; i<10;i++){
         cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<<datos_est[i].artes<<endl;
+    }
+}
+
+void promedio_seccion(){
+    int ciclo;
+    do{
+        ciclo = 0;
+        cout<<"Indique la seccion de la que quiere ver el top (de la A a la F)\n>> ";
+        cin>> seccion;
+        if(seccion !="A" && seccion !="B" && seccion !="C"&& seccion !="D" && seccion !="E" && seccion !="F"){
+            cout<< "Elige bien la seccion"<<endl;
+            ciclo = 1;
+        }
+    }while(ciclo==1);
+    cout<<"Top 10 de la seccion "<<seccion<<":"<<endl;
+    cout<<left<<setw(12)<<"Nombre"<<left<<setw(12)<<"Apellido"<<left<<setw(5)<<"Promedio"<<endl;
+    quicksort(datos_est,0,estudiantes-1,8);
+    for(int i=0; i<10;i++){
+        float promedio = promediar(i);
+        cout<<left<<setw(12)<<datos_est[i].nombre<<left<<setw(12)<<datos_est[i].apellido<<left<<setw(5)<<fixed<<setprecision(2)<<promedio<<endl;
     }
 }
 
@@ -63,10 +74,11 @@ void top(){
     cout<<"1. Top 10 de Matematicas"<<endl;
     cout<<"2. Top 10 de Sociales"<<endl;
     cout<<"3. Top 10 de Biologia"<<endl;
-    cout<<"4. Top 10 de Fisica"<<endl;
-    cout<<"5. Top 10 de Educacion Fisica"<<endl;
-    cout<<"6. Top 10 de Artes"<<endl;
-    cout<<"7. Top 10 de todas las materias\n>> ";
+    cout<<"4. Top 10 de Educacion Fisica"<<endl;
+    cout<<"5. Top 10 de Artes"<<endl;
+    cout<<"6. Top 10 de todas las materias"<<endl;
+    cout<<"7. Top 10 de una seccion en especifico"<<endl;
+    cout<<">> ";
     int eleccion=0;
     cin>>eleccion;
     switch(eleccion){
@@ -83,30 +95,27 @@ void top(){
             break;
             
         case 4:
-            promedio_fisi();
-            break;
-            
-        case 5:
             promedio_educ();
             break;
             
-        case 6:
+        case 5:
             promedio_art();
             break;
             
-        case 7:
+        case 6:
             promedio_math();
             cout<<"\n";
             promedio_soci();
             cout<<"\n";
             promedio_bio();
             cout<<"\n";
-            promedio_fisi();
-            cout<<"\n";
             promedio_educ();
             cout<<"\n";
             promedio_art();
             cout<<"\n";
+            break;
+        case 7:
+            promedio_seccion();
             break;
         default:
             cout<<"Elige bien"<<endl;
