@@ -62,6 +62,7 @@ void inicio(){
             cout<< "10. Agregar, editar o borrar profesor" <<endl;
             cout<< "11. Buscar estudiante y su profesor de materia indicada" <<endl;
             cout<< "12. Evaluar rendimiento de un profesor"<<endl;
+            cout<< "13. Evaluar profesor con mejor rendimiento"<<endl;
             cout<< ">> "; 
             cin>> eleccion;
             switch (eleccion){
@@ -117,6 +118,9 @@ void inicio(){
                 rendimiento_profesor();
                 break;
 
+            case 13:
+                mejor_rendimiento_en_pantalla();
+                break;
             default:
                 cout<<"Eleccion erronea"<<endl;
                 ciclo_dos=1;
