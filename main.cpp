@@ -33,10 +33,10 @@ int main(){
 
     inicio();
 
-    outfile.open("Prueba.csv");
+    outfile.open("datos_estudiantes.csv");
     struct_to_csv();
 
-    outfile.open("Prueba_profesor.csv");
+    outfile.open("datos_profesores.csv");
     struct_to_csv_profesor();
     return 0;
 }
